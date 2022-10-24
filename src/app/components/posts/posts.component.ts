@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {  EventsService } from '../../services/events.service';
+import {  EventModel } from '../../model/event-model';
 
 @Component({
   selector: 'app-posts',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  events: EventModel[] = [];
+  constructor(private eventService : EventsService) { }
 
   ngOnInit(): void {
+    this.eventService.getAll().subscribe(
+      (result:any) => {
+       this.events=result; 
+       console.log(this.events);
+        
+      },
+      (error:any) => {
+       console.log(error);
+       
+      },
+      () => {
+       
+      }
+    );
   }
 
 }

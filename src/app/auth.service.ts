@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import{ GlobalComponent } from './global-component';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,7 @@ export class AuthService {
 
    // Login
    login(userName: string, password: string): Observable<any> {
-    return this.http.post<any>('http://localhost/project/api/auth/login', {email:userName,password:password});
+    return this.http.post<any>(GlobalComponent.APIUrl+'auth/login', {email:userName,password:password});
   }
 
   logout(): void {
