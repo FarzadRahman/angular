@@ -13,6 +13,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { LoginComponent } from './components/login/login.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './components/login/login.component';
     PostsComponent,
     FooterComponent,
     SinglePostComponent,
-    LoginComponent
+    LoginComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,

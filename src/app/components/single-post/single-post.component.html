@@ -10,14 +10,16 @@
             <!-- <p><span class="firstcharacter">L</span>orem ipsum dolor sit, amet consectetur adipisicing elit. Ratione officia sed, suscipit distinctio, numquam omnis quo fuga ipsam quis inventore voluptatum recusandae culpa, unde doloribus saepe labore alias voluptate expedita? Dicta delectus beatae explicabo odio voluptatibus quas, saepe qui aperiam autem obcaecati, illo et! Incidunt voluptas culpa neque repellat sint, accusamus beatae, cumque autem tempore quisquam quam eligendi harum debitis.</p> -->
 
             <figure class="my-4">
-              <img src="/assets/img/post-landscape-1.jpg" alt="" class="img-fluid">
+<!--              <img src="/assets/img/post-landscape-1.jpg" alt="" class="img-fluid">-->
+              <img  src="http://localhost/project/public/images/{{event.image}}" alt="" class="img-fluid">
               <figcaption> {{event.price}} TK </figcaption>
             </figure>
             <p> {{event.details}} </p>
-          
+            <button class="btn btn-md btn-info" (click)="addItemToCart(event)">Add to Cart</button>
+
           </div><!-- End Single Post Content -->
 
-  
+
 
         </div>
 

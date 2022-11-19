@@ -30,12 +30,17 @@
             </ul>
           </li>
 
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+<!--          <li><a href="about.html">About</a></li>-->
+<!--          <li><a href="contact.html">Contact</a></li>-->
+          <li>   <a routerLink="/cart" class="btn btn-sm">
+            <i class="fa bi-cart">{{cartCount}}</i>
+          </a></li>
+
         </ul>
       </nav><!-- .navbar -->
 
       <div class="position-relative">
+
         <a routerLink="/login" routerLinkActive="active" *ngIf="!isSignedIn" class="mx-2">LOGIN</a>
         <button class="btn btn-outline-primary" (click)="signOut()" *ngIf="isSignedIn">Log out</button>
         <!-- <a href="#" class="mx-2"><span class="bi-twitter"></span></a>

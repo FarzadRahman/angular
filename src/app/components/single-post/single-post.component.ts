@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {  EventsService } from '../../services/events.service';
+import {  CartService } from '../../services/cart.service';
 import {  EventModel } from '../../model/event-model';
 
 @Component({
@@ -12,13 +13,14 @@ export class SinglePostComponent implements OnInit {
 
   id: number;
   event: EventModel=new EventModel();
-  
+
   constructor(    private route: ActivatedRoute,
     private router: Router,
-    private eventService : EventsService) { 
+    private eventService : EventsService,
+                  private cartService: CartService) {
       // force route reload whenever params change;
       // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-      // this.event.title="123";    
+      // this.event.title="123";
     }
 
   ngOnInit(): void {
@@ -31,22 +33,28 @@ export class SinglePostComponent implements OnInit {
 
     this.eventService.getSingle(this.id).subscribe(
       (result:any) => {
-       this.event=result; 
+       this.event=result;
        console.log(this.event.title);
-        
+
       },
       (error:any) => {
        console.log(error);
-       
+
       },
       () => {
-       
+
       }
     );
   }
-   
+
+  addItemToCart(item:any){
+    console.log(item);
+    this.cartService.addToCart(item);
+    window.alert('Your product has been added to the cart!');
+  }
+
     // console.log(this.id);
-  
+
 }
 
 
