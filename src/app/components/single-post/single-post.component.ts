@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {  EventsService } from '../../services/events.service';
 import {  CartService } from '../../services/cart.service';
 import {  EventModel } from '../../model/event-model';
+import{ GlobalComponent } from '../../global-component';
 
 @Component({
   selector: 'app-single-post',
@@ -12,6 +13,7 @@ import {  EventModel } from '../../model/event-model';
 export class SinglePostComponent implements OnInit {
 
   id: number;
+  apiUrl:any;
   event: EventModel=new EventModel();
 
   constructor(    private route: ActivatedRoute,
@@ -25,6 +27,7 @@ export class SinglePostComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.apiUrl=GlobalComponent.appUrl;
     // this.activeRoute.params.subscribe(routeParams => {
     //   this.loadUserDetail(routeParams.id);
     // });
@@ -51,6 +54,7 @@ export class SinglePostComponent implements OnInit {
     console.log(item);
     this.cartService.addToCart(item);
     window.alert('Your product has been added to the cart!');
+    this.cartService.getItems();
   }
 
     // console.log(this.id);

@@ -31,6 +31,7 @@ export class CartService {
     this.items.push(product);
     const carItemsString:string = JSON.stringify(this.items);
     localStorage.setItem('localCarts', carItemsString);
+    // this.setCartCount();
 
   }
 
