@@ -37,7 +37,7 @@ export class SinglePostComponent implements OnInit {
     this.eventService.getSingle(this.id).subscribe(
       (result:any) => {
        this.event=result;
-       console.log(this.event.title);
+       console.log(this.event);
 
       },
       (error:any) => {

@@ -35,6 +35,13 @@ export class CartService {
 
   }
 
+  removeItem(index: number){
+    this.items.splice(index, 1);
+    const carItemsString:string = JSON.stringify(this.items);
+    localStorage.setItem('localCarts', carItemsString);
+  }
+
+
   getItems() {
     this.cartCount.next(this.items.length);
     const carItemsString= localStorage.getItem('localCarts');
