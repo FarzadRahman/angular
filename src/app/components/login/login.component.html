@@ -8,7 +8,7 @@
             <!-- Register -->
             <div class="card">
                 <div class="card-body">
-                   
+
                     <!-- Errors -->
                     <div *ngIf="errors?.email" class="alert alert-danger mt-3">
                         {{ errors?.email }}
@@ -20,11 +20,11 @@
                         {{ errors?.error }}
                     </div>
 
-      
-           
+
+
 
                     <form id="formAuthentication" class="mb-3" [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)" >
-               
+
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
@@ -32,7 +32,7 @@
                             <input id="email" type="email" class="form-control" formControlName="userName" required autocomplete="email" autofocus >
 
 
-                           
+
 
                         </div>
                         <div class="mb-3 form-password-toggle">
@@ -46,7 +46,7 @@
 
                                 <input id="password" type="password" class="form-control" formControlName="password" required autocomplete="current-password">
 
-                              
+
 
                                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
 
@@ -66,10 +66,11 @@
                         </div>
                         <div class="mb-3">
                             <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                            <a routerLink="/registration" routerLinkActive="active" >Registration</a>
                         </div>
                     </form>
 
-                   
+
                 </div>
             </div>
             <!-- /Register -->

@@ -17,7 +17,7 @@ export class AuthService {
   //    this.http.post('http://localhost/project/api/auth/login', {email:userName,password:password}).subscribe(
   //     (result) => {
   //       console.log(result);
-     
+
   //     //   localStorage.setItem('isUserLoggedIn', result);
   //     },
   //     (error) => {
@@ -32,13 +32,13 @@ export class AuthService {
   //   );
 
 
-     
-    //  localStorage.setItem('isUserLoggedIn', this.isUserLoggedIn ? "true" : "false"); 
+
+    //  localStorage.setItem('isUserLoggedIn', this.isUserLoggedIn ? "true" : "false");
 
   // return of(this.isUserLoggedIn).pipe(
   //    delay(1000),
-  //    tap(val => { 
-  //     //   console.log("Is User Authentication is successful: " + val); 
+  //    tap(val => {
+  //     //   console.log("Is User Authentication is successful: " + val);
   //     console.log(this.response);
   //    })
   // );
@@ -51,7 +51,15 @@ export class AuthService {
 
   logout(): void {
   this.isUserLoggedIn = false;
-     localStorage.removeItem('isUserLoggedIn'); 
+     localStorage.removeItem('isUserLoggedIn');
+  }
+
+  register(data:any){
+    return this.http.post<any>(GlobalComponent.APIUrl+'customer/register', data);
+  }
+
+  me(token:any){
+    return this.http.post<any>(GlobalComponent.APIUrl+'me?token'+token,{});
   }
 
   constructor(private http: HttpClient) { }

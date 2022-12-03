@@ -12,6 +12,7 @@ export class PostsComponent implements OnInit {
 
   apiUrl:any;
   events: EventModel[] = [];
+  searchText:any;
   constructor(private eventService : EventsService) { }
 
   ngOnInit(): void {
