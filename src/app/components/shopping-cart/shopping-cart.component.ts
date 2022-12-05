@@ -29,7 +29,21 @@ export class ShoppingCartComponent implements OnInit {
     // console.log(this.token.getToken());
     // console.log(this.authService.me(this.token.getToken()));
     this.getLoginInfo();
+    // const total = this.items.reduce((sum:number, item:any) => sum + item.price, 0);
+    // console.log(total);
+    // this.cartTotal();
+  }
 
+  public cartTotal(): number {
+
+    let total: number = 0;
+
+    this.items.forEach((e:any) => {
+      total = total + Number(e.price);
+    });
+
+    // console.log(total);
+    return total;
   }
 
   getLoginInfo(){
@@ -38,6 +52,7 @@ export class ShoppingCartComponent implements OnInit {
       (result) => {
 
         this.userData=result;
+
         this.isLoggedIn=true;
         console.log(this.userData);
 

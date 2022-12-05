@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     private router : Router,
     private token: TokenService,
     private authState: AuthStateService
-    
+
     ) { }
 
 
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         userName: new FormControl('',[
           Validators.required,
           Validators.email]),
-        password: new FormControl("admin"),
+        password: new FormControl(),
      });
   }
 
@@ -48,10 +48,10 @@ export class LoginComponent implements OnInit {
 //     //  console.log("Login PASS: " + this.password);
 
 //      this.authService.login(this.userName, this.password)
-//         .subscribe( data => { 
-//            console.log("Is Login Success: " + data); 
-     
-//           // if(data) this.router.navigate(['/expenses']); 
+//         .subscribe( data => {
+//            console.log("Is Login Success: " + data);
+
+//           // if(data) this.router.navigate(['/expenses']);
 //      });
 //   }
 
